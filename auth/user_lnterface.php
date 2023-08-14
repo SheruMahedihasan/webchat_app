@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/391827d54c.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="../assets/css/style.css">
     <title>App -Chat</title>
 </head>
@@ -28,10 +29,10 @@
             <!--search-container -->
             <div class="search-container">
                 <div class="input">
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
                     <input type="text" placeholder="Search or start new chat   ">
                 </div>
-                <i class="fa-sharp fa-solid fa-bars-filter"></i>
+                <!-- <i class="fa-sharp fa-solid fa-bars-filter"></i> -->
             </div>
 
 
@@ -100,6 +101,14 @@
                     <h4>Mahedi<br><span>Online</span></h4>
                 </div>
                 <div class="nav-icons">
+                    <div class="dropdown">
+                        <button class="dropbtn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <div class="dropdown-content">
+                            <button class="dropdown-btn">Profile</button>
+                            <button class="dropdown-btn">Change password</button>
+                            <button class="dropdown-btn">Logout</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 

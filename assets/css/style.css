@@ -210,8 +210,12 @@ body {
   align-items: center;
 }
 
+.search-container .input{
+    width: 100%;
+}
+
 .search-container .input input {
-  width: 121%;
+  width: 100%;
   outline: none;
   border: none;
   background: #fff;
@@ -219,17 +223,17 @@ body {
   height: 30x;
   border-radius: 10px;
   font-size: 12px;
-  padding-left: 60px;
-  margin: 10px
+  padding-left: auto;
+  margin: auto;
 }
 
-.search-container .input i {
+/* .search-container .input i {
   position: absolute;
   left: 26px;
   top: 14px;
   color:#bbb;
   font-size: 0.8em;
-}
+} */
 
 .chat-list {
   position: relative;
@@ -488,4 +492,46 @@ img {
     border-radius: 25px;
     height: inherit;
     margin: 0px 20px 0px 0px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: #333;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-btn{
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-size: large;
+    background-color: #f9f9f9;
+}
+
+.dropdown-btn:hover{
+    background-color: #ededed;
 }
