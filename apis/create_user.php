@@ -19,7 +19,7 @@ if (isset($_POST['name']) || isset($_POST['phone']) || isset($_POST['password'])
         $uploadStatus = 1;
         $uploadedFile = '';
         if (!empty($_FILES["profile"]["name"])) {
-            $fileName = $date .  basename($_FILES["profile"]["name"]);
+            $fileName = basename($_FILES["profile"]["name"]);
             $targetFilePath = $uploadDir . $fileName;
             $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
 
