@@ -102,7 +102,7 @@
                 </div>
                 <div class="nav-icons">
                     <div class="dropdown">
-                        <button class="dropbtn"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                        <button class="dropbtn" id="OnshowDropdown"><i class="fa-solid fa-ellipsis-vertical"></i></button>
                         <div class="dropdown-content">
                             <button class="dropdown-btn">Profile</button>
                             <button class="dropdown-btn">Change password</button>
@@ -154,6 +154,16 @@
         </div>
 
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#OnshowDropdown').click(function() {
+                $('.dropdown-content').toggle('slow');
+            });
+        });
+    </script>
 </body>
 
 </html>
