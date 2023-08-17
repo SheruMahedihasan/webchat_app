@@ -104,7 +104,8 @@
         });
 
         function checkUser() {
-            var patternUser = "/^[a-zA-z]*$/";
+            // var patternUser = /^[A-Za-z0-9]+$/;
+            var patternUser = /^[a-z\s]+$/i;
             var user = $("#name").val();
             var validUser = patternUser.test(user);
             if (user == "") {

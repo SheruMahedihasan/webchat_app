@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (isset($_SESSION['login_user_id'])) {
+    header('Location: http://localhost:8080/php-chat-app/auth/index.php');
+    exit();
+} ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -80,6 +86,8 @@
                             // $('#login')[0].reset();
                             $('.statusMsg').html('<p class="alert alert-success">' + response.message + '</p>');
                             location.href = "../chat/index.php";
+                        } else if (response.status == 0) {
+                            $('.statusMsg').html('<p class="alert alert-success">' + response.message + '</p>');
                         }
                     }
                 });
