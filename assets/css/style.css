@@ -527,7 +527,7 @@ img {
     width: 100%;
     text-align: left;
     font-size: large;
-    background-color: #f9f9f9;
+    background-color: transparent;
 }
 
 .dropdown-btn:hover{

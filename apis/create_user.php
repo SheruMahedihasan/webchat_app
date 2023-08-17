@@ -2,7 +2,8 @@
 include '../config/mysql.config.php';
 
 $uploadDir = '../profiles/';
-$date = date('Y-m-d H:i:s');
+$randInt = rand(1000, 100000);
+
 $allowTypes = array('pdf', 'doc', 'docx', 'jpg', 'png', 'jpeg');
 $response = array(
     'status' => 0,
@@ -20,13 +21,14 @@ if (isset($_POST['name']) || isset($_POST['phone']) || isset($_POST['password'])
         $uploadedFile = '';
         if (!empty($_FILES["profile"]["name"])) {
             $fileName = basename($_FILES["profile"]["name"]);
-            $targetFilePath = $uploadDir . $fileName;
+            $newFileName = $randInt . "-" . $fileName;
+            $targetFilePath = $uploadDir .  $newFileName;
             $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
 
             if (in_array($fileType, $allowTypes)) {
                 // Upload file to the server 
                 if (move_uploaded_file($_FILES["profile"]["tmp_name"], $targetFilePath)) {
-                    $uploadedFile = $fileName;
+                    $uploadedFile = $newFileName;
                 } else {
                     $uploadStatus = 0;
                     $response['message'] = 'Sorry, there was an error uploading your file.';

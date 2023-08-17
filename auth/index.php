@@ -79,7 +79,7 @@
                         if (response.status == 1) {
                             // $('#login')[0].reset();
                             $('.statusMsg').html('<p class="alert alert-success">' + response.message + '</p>');
-                            location.href = "user_lnterface.php";
+                            location.href = "../chat/index.php";
                         }
                     }
                 });
