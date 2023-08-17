@@ -115,7 +115,7 @@
                 $("#name_error").html('Username length is too short min 4 characters.');
                 return false;
             } else if (!validUser) {
-                $("#name_error").html('Username should be a-z, A-Z only.');
+                $("#name_error").html('Username should be a-z, A-Z, 0-9 only.');
                 return false;
             } else {
                 $("#name_error").html('');
