@@ -31,22 +31,27 @@
                         <div class="mb-3">
                             <label class="form-label">Name:</label>
                             <input type="text" class="form-control" placeholder="Enter the name" id="name" name="name">
-                            <div id="name_error"></div>
+                            <div id="name_error" style="color: red;"></div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Phone Number:</label>
                             <input type="number" class="form-control" placeholder="Enter the number" id="phone" name="phone">
-                            <div id="phone_error"></div>
+                            <div id="phone_error" style="color: red;"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email:</label>
+                            <input type="email" autocomplete="off" class="form-control" placeholder="Enter the Email" id="email" name="email">
+                            <div id="email_error" style="color: red;"></div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Password:</label>
                             <input type="password" autocomplete="off" class="form-control" placeholder="Enter the password" id="password" name="password">
-                            <div id="password_error"></div>
+                            <div id="password_error" style="color: red;"></div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Confirm Password:</label>
                             <input type="password" placeholder="Enter the confirm password" class="form-control" id="cpassword" name="cpassword">
-                            <div id="cpassword_error"></div>
+                            <div id="cpassword_error" style="color: red;"></div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Profile picture:</label>
@@ -73,35 +78,28 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
-        $("#form_submit").on("submit", function(e) {
-            e.preventDefault();
 
-            // Call your validation functions here
-            if (!checkUser() || !checkPhone() || !checkPassword() || !checkPasswordMatch()) {
-                return;
+
+        function checkemail() {
+            var patternemail = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+            var email = $("#email").val();
+            var validateemail = patternemail.test(email);
+            if (email == "") {
+                $(".statusMsg").fadeIn();
+                $(".statusMsg").html('<p class="alert alert-danger">All field required!</p>');
+                setTimeout(() => {
+
+                    $(".statusMsg").fadeOut();
+                }, 2000);
+                return false;
+            } else if (!validateemail) {
+                $("#email_error").html("invalid email");
+                return false;
+            } else {
+                $("#email_error").html("");
+                return true;
             }
-
-            const formData = new FormData(this);
-
-            $.ajax({
-                url: "../apis/create_user.php",
-                type: "POST",
-                data: formData,
-                dataType: 'json',
-                contentType: false,
-                cache: false,
-                processData: false,
-                success: function(response) {
-                    if (response.status == 1) {
-                        $('#form_submit')[0].reset();
-                        $('.statusMsg').html('<p class="alert alert-success">' + response.message + '</p>');
-                        location.href = "index.php";
-                    } else {
-                        $('.statusMsg').html('<p class="alert alert-danger">' + response.message + '</p>');
-                    }
-                }
-            });
-        });
+        }
 
         function checkUser() {
             // var patternUser = /^[A-Za-z0-9]+$/;
@@ -167,5 +165,37 @@
                 return true;
             }
         }
+
+        $("#form_submit").on("submit", function(e) {
+            e.preventDefault();
+
+
+            // Call your validation functions here
+            if (!checkemail() || !checkUser() || !checkPhone() || !checkPassword() || !checkPasswordMatch()) {
+                return;
+            }
+
+            const formData = new FormData(this);
+
+            $.ajax({
+                url: "../apis/create_user.php",
+                type: "POST",
+                data: formData,
+                dataType: 'json',
+                contentType: false,
+                cache: false,
+                processData: false,
+                success: function(response) {
+                    if (response.status == 1) {
+                        $('#form_submit')[0].reset();
+                        $('.statusMsg').html('<p class="alert alert-success">' + response.message + '</p>');
+                        location.href = "index.php";
+                    } else {
+                        $('.statusMsg').html('<p class="alert alert-danger">' + response.message + '</p>');
+                    }
+                }
+            });
+        });
+
     });
 </script>

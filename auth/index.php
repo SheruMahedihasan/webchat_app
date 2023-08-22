@@ -43,12 +43,15 @@ if (isset($_SESSION['login_user_id'])) {
                             <label class="form-label">Password:</label>
                             <input type="password" autocomplete="off" class="form-control" placeholder="Enter the password" id="password" name="password">
                             <div id="password_error"></div>
+                            <h2 class="link" style="text-align: end; text-decoration: none; font-size: 16px; margin-top: 10px;">
+                                <a href="forgot.php">Forgot Password</a>
+                            </h2>
                         </div>
 
                         <button type="button" id="login" class="btn mb-3">Login</button>
                         <span class="link">
                             Don't have an account?<a href="signup.php">Sign Up</a>
-                        </span>
+                        </span><br><br>
                     </form>
                 </div>
             </div>

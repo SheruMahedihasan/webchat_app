@@ -13,6 +13,7 @@ $response = array(
 if (isset($_POST['name']) || isset($_POST['phone']) || isset($_POST['password']) || isset($_POST['profile'])) {
     $name = $_POST['name'];
     $phone = $_POST['phone'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
     $password1 = md5($password);
 
@@ -42,10 +43,9 @@ if (isset($_POST['name']) || isset($_POST['phone']) || isset($_POST['password'])
         if ($uploadStatus == 1) {
 
             $check_phone = $conn->query("select * from user where phone='$phone'");
-            // print_r("select * from user where phone='$phone'");
-            // exit;
-            // $check_phone_conn = ;
-            if ($check_phone) {
+            $check_phone_conn = mysqli_num_rows($check_phone);
+            if ($check_phone_conn <  0) {
+
                 $response['message'] = 'Phone number is already is exist!';
             } else {
 
