@@ -3,6 +3,7 @@ body{
     font-family: 'Inter', sans-serif;
     width: 100%;
     height: 100%;
+    background-color: #ffffff !important;
 }
 
 .w-400{
