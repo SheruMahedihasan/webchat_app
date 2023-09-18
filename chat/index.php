@@ -182,6 +182,15 @@ include '../config/mysql.config.php';
 
 
 <script>
+    var input = document.getElementById("input_mesg_send");
+    input.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault();
+        document.getElementById("btn-send").click();
+    }
+    });
+
+    
     $(document).ready(function() {
 
         //  send message user
@@ -289,4 +298,7 @@ include '../config/mysql.config.php';
 
         
     });
+</script>
+<script>
+
 </script>
