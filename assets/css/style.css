@@ -585,3 +585,15 @@ body {
   height: auto;
 }
 
+.show-pass{
+  width:15px;
+  float: right;
+  margin-right: 10px;
+  margin-top: -40px;
+  position: relative;
+  z-index: 2;
+}
+
+.show-pass,input:focus{
+  box-shadow: none !important;
+}

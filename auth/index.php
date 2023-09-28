@@ -42,6 +42,7 @@ if (isset($_SESSION['login_user_id'])) {
                         <div class="mb-3">
                             <label class="form-label">Password:</label>
                             <input type="password" autocomplete="off" class="form-control" placeholder="Enter the password" id="password" name="password">
+                            <input type="checkbox" class="show-pass" onclick="myFunction()">
                             <div id="password_error"></div>
                             <h2 class="link" style="text-align: end; text-decoration: none; font-size: 16px; margin-top: 10px;">
                                 <a href="forgot.php">Forgot Password</a>
@@ -62,7 +63,18 @@ if (isset($_SESSION['login_user_id'])) {
 
 </html>
 <script>
+    function myFunction() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
     $(document).ready(function() {
+
+        
+
         $("#login").on("click", function() {
             var phone_v = $("#phone").val();
             var password_v = $("#password").val();
@@ -96,5 +108,8 @@ if (isset($_SESSION['login_user_id'])) {
                 });
             }
         });
+
+        
+
     });
 </script>
