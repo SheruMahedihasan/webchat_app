@@ -45,7 +45,7 @@ if (isset($_SESSION['login_user_id'])) {
                             <input type="checkbox" class="show-pass" onclick="myFunction()">
                             <div id="password_error"></div>
                             <h2 class="link" style="text-align: end; text-decoration: none; font-size: 16px; margin-top: 10px;">
-                                <a href="forgot.php" style="text-decoration: none;">Forgot Password</a>
+                                <a href="forgot.php" id="forgot" style="text-decoration: none;">Forgot Password</a>
                             </h2>
                         </div>
 
