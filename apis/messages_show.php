@@ -49,18 +49,3 @@ if ($result) {
     echo $output;
 }
 ?>
-<!-- // date different get
-$date = date('Y-m-d');
-$date1 = date("Y-m-d", strtotime($time));
-$match_date = date('Y-m-d', strtotime($date1)); // Use $date1 here
-
-$date_bk = date('Y-m-d', strtotime($date . ' -1 day'));
-
-if ($date == $match_date) {
-    $date_status = "today";
-} elseif ($date1 == $date_bk) {
-    $date_status = "Yesterday";
-} else {
-    $date_status = $date1;
-}
-$output = ob_get_clean(); -->
